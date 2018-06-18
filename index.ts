@@ -13,7 +13,7 @@ const mapProperties = {
 const mapLineTypes = {
   corridor: {
     format: {
-      sample: "11111100000001111111111",
+      sample: "111000111",
       canMirror: true
     },
     cooldown: 0,
@@ -22,7 +22,7 @@ const mapLineTypes = {
   },
   combat: {
     format: {
-      sample: "11111100000031111111111",
+      sample: "111003111",
       canMirror: true
     },
     cooldown: 3,
@@ -31,7 +31,7 @@ const mapLineTypes = {
   },
   combatDodgeble: {
     format: {
-      sample: "11111100003001111111111",
+      sample: "111030111",
       canMirror: true
     },
     cooldown: 3,
@@ -40,7 +40,7 @@ const mapLineTypes = {
   },
   grass: {
     format: {
-      sample: "111111222222221111111111",
+      sample: "111222111",
       canMirror: true
     },
     cooldown: 2,
@@ -49,9 +49,24 @@ const mapLineTypes = {
   }
 };
 
-const generateMap = () => {
-  
+const buildCorridor = (map) =>
+  map.push(mapLineTypes.corridor.format.sample);
+
+const buildCorridorTimes = (map, times) => {
+  if (times) {
+    return buildCorridorTimes(buildCorridor(map), times - 1);
+  }
 };
+
+const buildFirstCorridor = (map) =>
+  buildCorridorTimes(map, 5);
+
+const generateMap = () => {
+  let map = buildFirstCorridor([]);
+  return map;
+};
+
+generateMap();
 
 /**
   - Width: 23
