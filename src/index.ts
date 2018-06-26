@@ -27,3 +27,19 @@ const printMap = (map:Array<string>) => {
   console.log("-- Map Ends ------");
 };
 printMap(generateMap(20));
+
+import Vue from "vue";
+
+let v = new Vue({
+    el: "#app",
+    template: `
+    <div>
+        <div>Generated map:</div>
+        <ul>
+          <li v-for="floor in maps">{{floor}}</li>
+        </ul>
+    </div>`,
+    data: {
+        maps: generateMap(20)
+    }
+});
