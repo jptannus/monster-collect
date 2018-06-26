@@ -1,6 +1,6 @@
 {
-  "name": "pokemon-roguelike",
-  "version": "1.0.0",
+  "name": "monster-collect",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/jptannus/pokemon-roguelike.git"
+    "url": "git+ssh://git@github.com:jptannus/monster-collect.git"
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/jptannus/pokemon-roguelike#readme",
+  "homepage": "https://github.com/jptannus/monster-collect",
   "dependencies": {
     "typescript": "^2.9.2"
   },
