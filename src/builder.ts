@@ -18,7 +18,7 @@ interface World {
   cooldownCombatDodge: number;
 }
 
-namespace Builder {
+export namespace Builder {
   const mapLineTypes = new Map();
   mapLineTypes.set("corridor", {
     format: {
@@ -122,7 +122,7 @@ namespace Builder {
     } else {
       world.cooldownCombatDodge = Math.max(0, world.cooldownCombatDodge - 1);
     }
-    if (world.repeat) {
+    if (world.repeat != nullFunc) {
       functions = [world.repeat];
     }
     return functions;

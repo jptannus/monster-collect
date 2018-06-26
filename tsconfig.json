@@ -4,8 +4,8 @@
     "sourceMap": true,
     "strict": true,
     "noImplicitReturns": true,
-    "module": "es2015",
     "moduleResolution": "node",
+    "module": "es6",
     "target": "es6"
   },
   "exclude": [

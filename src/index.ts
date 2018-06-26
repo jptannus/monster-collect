@@ -1,3 +1,5 @@
+import { Builder } from "./builder";
+
 const tileTypes = {
   "floor": 0,
   "wall": 1,
