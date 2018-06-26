@@ -19,7 +19,7 @@ interface World {
 }
 
 export namespace Builder {
-  const mapLineTypes = new Map();
+  const mapLineTypes = new Map<string, LineType>();
   mapLineTypes.set("corridor", {
     format: {
       sample: "111000111",
@@ -57,17 +57,17 @@ export namespace Builder {
     chance: 0.3
   });
 
-  const buildLine = (map:Array<string>, type:string):Array<string> => {
-    map.push(mapLineTypes.get(type).format.sample);
+  const buildLine = (map:string[], type:string):string[] => {
+    map.push(mapLineTypes.get(type)!.format.sample);
     return map;
   }
   
-  const buildCorridor = (map:Array<string>):Array<string> => buildLine(map, "corridor")
-  const buildGrass = (map:Array<string>):Array<string> => buildLine(map, "grass")
-  const buildCombat = (map:Array<string>):Array<string> => buildLine(map, "combat")
-  const buildCombatDodgeble = (map:Array<string>):Array<string> => buildLine(map, "combatDodgeble")
+  const buildCorridor = (map:string[]):string[] => buildLine(map, "corridor")
+  const buildGrass = (map:string[]):string[] => buildLine(map, "grass")
+  const buildCombat = (map:string[]):string[] => buildLine(map, "combat")
+  const buildCombatDodgeble = (map:string[]):string[] => buildLine(map, "combatDodgeble")
   
-  const buildCorridorTimes = (map:Array<string>, times:number):Array<string> => {
+  const buildCorridorTimes = (map:string[], times:number):string[] => {
     if (!times) return map;
     return buildCorridorTimes(buildCorridor(map), times - 1);
   }
@@ -105,8 +105,8 @@ export namespace Builder {
     }
   }
 
-  const gatherBuildFunctions = ():Array<Function> => {
-    let functions:Array<Function> = [buildCorridor];
+  const gatherBuildFunctions = ():Function[] => {
+    let functions:Function[] = [buildCorridor];
     if (world.cooldownGrass <= 0) {
       functions.push(buildGrass);
     } else {
@@ -128,7 +128,7 @@ export namespace Builder {
     return functions;
   }
 
-  const buildLineByChance = (map:Array<string>):Array<string> => {
+  const buildLineByChance = (map:string[]):string[] => {
     const builders = gatherBuildFunctions();
     const index = Math.floor(Math.random() * builders.length);
     const builder = builders[index];
@@ -136,10 +136,10 @@ export namespace Builder {
     return builder(map);
   }
   
-  export const buildFirstCorridor = (map:Array<string>):Array<string> =>
+  export const buildFirstCorridor = (map:string[]):string[] =>
     buildCorridorTimes(map, 5);
   
-  export const buildLineTimes = (map:Array<string>, times:number):Array<string> => {
+  export const buildLineTimes = (map:string[], times:number):string[] => {
     if (!times) return map;
     map = buildLineByChance(map);
     return buildLineTimes(map, times - 1);
