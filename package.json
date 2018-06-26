@@ -1,0 +1,29 @@
+{
+  "name": "pokemon-roguelike",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/jptannus/pokemon-roguelike.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/jptannus/pokemon-roguelike#readme",
+  "dependencies": {
+    "typescript": "^2.9.2"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "ts-loader": "^4.4.1",
+    "vue": "^2.5.16",
+    "vue-loader": "^15.2.4",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8"
+  }
+}
