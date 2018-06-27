@@ -28,7 +28,7 @@ const printMap = (map:Array<string>) => {
 };
 printMap(generateMap(20));
 
-import Vue from "vue";
+import Vue from "vue/dist/vue";
 
 let v = new Vue({
     el: "#app",

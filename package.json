@@ -18,6 +18,7 @@
     "typescript": "^2.9.2"
   },
   "devDependencies": {
+    "@vue/component-compiler-utils": "^2.0.0",
     "css-loader": "^0.28.11",
     "ts-loader": "^4.4.1",
     "vue": "^2.5.16",
